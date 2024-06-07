@@ -17,7 +17,7 @@ pipeline {
             }
             stage('push'){
                 steps{
-                    sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u \ $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                    sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u \$DOCKERHUB_CREDENTIALS_USR --password-stdin"
                     sh "docker tag mysql-lab-9-image urszulaC/task2sql:latest"
                     sh "docker tag flask-app-lab-9-image urszulaC/task2flask:latest"
                     sh "docker push urszulaC/task2sql:latest"
